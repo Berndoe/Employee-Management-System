@@ -1,0 +1,252 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Assets</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<style>
+    .nav-item {
+        margin-left: 250px;
+        padding-left:50%;
+        font-size: 18px;
+    }
+
+    #assetModal {
+        margin-left: 170px;
+    }
+
+    /* back button */
+    .btn-secondary {
+        padding-left:40px;
+        padding-right:40px;
+        margin-left:80px;
+    }
+
+    /* delete button */
+    .delBtn {
+        padding-left:40px;
+        padding-right:40px;
+    }
+
+
+    td button:nth-child(1){background-color: #0298cf;}
+
+    td button:nth-child(2) {background-color: #f80000;}
+
+    tr:hover td {color: #0298cf;}
+    
+    .btn-success{background-color:#0298cf;}
+
+</style>
+<header>
+    <!-- navigation bar content  -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0298cf;">
+        <a class="navbar-brand" href="Home Page.html" style="color: white;">Axon Employee Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="Employee Page.html" style="color: white;">Employees <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="Salary Page.html" style="color: white;">Salaries</a>
+            <a class="nav-item nav-link" href="Asset Page.html" style="color: white;">Assets</a>
+            <a class="nav-item nav-link" href="Login Page.html" style="color: white;">Log Out</a>
+          </div>
+        </div>
+    </nav>
+</header>
+
+<!-- New Asset modal -->
+<div class="modal fade" id="new_asset" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="new_asset" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="assetModal">New Asset</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <input class="form-control" type="number" placeholder="Employee ID" id="employeeID" required><br>
+                <input class="form-control" type="text" placeholder="Asset" required><br>          
+                <div class="d-grid gap-2 col-11 mx-auto" style="margin-top: 10;">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                    <button type="button" class="btn btn-primary">Add Asset</button>
+                </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update asset modal -->
+  <div class="modal fade" id="update_asset" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="update_asset" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="assetModal">Update Asset</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <input class="form-control" type="number" placeholder="Employee ID" id="employeeID" required><br>
+                <input class="form-control" type="text" placeholder="Asset" id="asset" required><br>        
+                <div class="d-grid gap-2 col-11 mx-auto" style="margin-top: 10;">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                    <button type="button" class="btn btn-primary">Update Asset</button>
+                </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete assets modal -->
+  <div class="modal fade" id="del_asset" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="del_asset" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="assetModal">Delete Asset</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+            Are you sure you want to delete this record?       
+            <div class="d-grid gap-2 col-11 mx-auto" style="margin-top: 10;">
+                <button type="button" class="btn btn-primary delBtn">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left: -2;">No</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" style="font-size: 25;font-family:Arial, Helvetica, sans-serif;">Employees</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search" style="width: 400px;">
+            <button class="btn btn-success" type="button" data-toggle="modal" data-target="#new_asset">New Asset</button>
+        </form>
+    </nav>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-light"style="font-family:Arial, Helvetica, sans-serif;text-align:center;">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Assets</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family:Arial, Helvetica, sans-serif;text-align: center;">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>144</td>
+                        <td>Thor</td>
+                        <td>Odinson</td>
+                        <td>Car</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>202</td>
+                        <td>Tony</td>
+                        <td>Stark</td>
+                        <td>Estate</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>034</td>
+                        <td>Bruce</td>
+                        <td>Banner</td>
+                        <td>Ship</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>156</td>
+                        <td>Natasha</td>
+                        <td>Bennett</td>
+                        <td>Car</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>561</td>
+                        <td>Bernd</td>
+                        <td>Tannamuri</td>
+                        <td>Motorbike</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>252</td>
+                        <td>Maximus</td>
+                        <td>Rovelli</td>
+                        <td>Bicycle</td>
+                        <td>
+                            <button class="edit" data-toggle="modal" data-target="#update_asset"><i class="fa-solid fa-pen-to-square"></i></button> 
+                            <button class="delete" data-toggle="modal" data-target="#del_asset"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+         <!-- Pagination -->
+         <nav style="margin-top:-20px;">
+            <ul class="pagination justify-content-end">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" >
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+ </body>
+</html>
